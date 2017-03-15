@@ -1,4 +1,5 @@
 var User = require('../models/userModel.js');
+var tokenService = require('./tokenService.js');
 
 exports.save = function(req, res) {
     var user = new User();
@@ -72,7 +73,11 @@ exports.login = function(req, res) {
         }
         if (user) {
             if (user.comparePassword(password)) {
-                res.json('Logged in!');          
+                var token = tokenService.createToken(user);
+                res.json({
+                    message: 'You are logged in.',
+                    token: token
+                });
             }
         }
     })
