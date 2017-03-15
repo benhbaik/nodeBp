@@ -75,6 +75,7 @@ exports.login = function(req, res) {
             if (user.comparePassword(password)) {
                 var token = tokenService.createToken(user);
                 res.json({
+                    username: user.username,
                     message: 'You are logged in.',
                     token: token
                 });

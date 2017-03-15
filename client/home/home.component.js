@@ -4,6 +4,9 @@ angular.
         templateUrl: 'home/home.html',
         // templateUrl: 'yummm-search/search.html'
         controller: function() {
-            this.name = 'world!'
+            var vm = this;
+            vm.login = function(username, password) {
+                
+            }
         }
     });

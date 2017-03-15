@@ -24,6 +24,13 @@ db.once('open', function() {
   console.log('Connected to DB');
 });
 
+app.use(express.static('client'));
+app.use('*', function (req, res) {
+    res.status(404).json({
+        message: 'Not Found'
+    });
+});
+
 app.use('/api', apiRoutes);
 
 app.listen(port);

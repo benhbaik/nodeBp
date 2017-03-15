@@ -3,6 +3,6 @@
 angular.module('yummm', [
   'ngRoute',
   'home',
-  'nav',
+  'navbar',
   'search'
 ]);
