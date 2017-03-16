@@ -4,17 +4,18 @@ angular.
     module('home').
     component('home', {
         templateUrl: 'home/home.html',
-        controller: ['User',
-            function homeController(User) {
+        controller: ['$http', '$location',
+            function homeController($http, $location) {
                 var vm = this;
                 vm.login = function(username, password) {
                     var userInfo = {
                         username: username,
                         password: password
                     };
-                    User.login(userInfo, function(response) {
-                        sessionStorage.setItem('token', response.token);
-                    });
+                    $http.post('/api/login', userInfo).
+                        then(function(data) {
+                            $location.path('/dashboard');
+                        });
                 }
             }
         ]

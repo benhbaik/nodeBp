@@ -1,3 +1,3 @@
 'use strict';
 
-angular.module('home', ['core.user']);
+angular.module('home', []);

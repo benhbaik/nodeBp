@@ -5,10 +5,10 @@ angular.module('yummm', [
   'core',
   'home',
   'navbar',
-  'search'
+  'search',
+  'registration',
+  'dashboard'
 ]);
-// TODO: build REST client service
-// TODO: add dashboard component
-// TODO: should route to dashboard after login
+
 // TODO: should route to home if dashboard is clicked and not logged in
 // TODO: should route to dashboard if home is clicked and logged in

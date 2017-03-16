@@ -10,6 +10,12 @@ angular.module('yummm').
         $routeProvider.when('/search', {
             template: '<search></search>'
         });
+        $routeProvider.when('/registration', {
+            template: '<registration></registration>'
+        });
+        $routeProvider.when('/dashboard', {
+            template: '<dashboard></dashboard>'
+        });
 
         $routeProvider.otherwise({redirectTo: '/home'});
     }]);
