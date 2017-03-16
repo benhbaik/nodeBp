@@ -67,19 +67,30 @@ exports.login = function(req, res) {
     var username = { username: req.body.username };
     var password = req.body.password;
 
-    User.findOne(username).select('password').exec(function(err, user) {
+    User.findOne(username, 'username password', function(err, user) {
         if (err) {
             res.json(err);
         }
         if (user) {
-            if (user.comparePassword(password)) {
+            var passwordMatch = user.comparePassword(password);
+
+            if (passwordMatch) {
                 var token = tokenService.createToken(user);
                 res.json({
+                    success: true,
                     username: user.username,
                     message: 'You are logged in.',
                     token: token
                 });
             }
+
+            if (!passwordMatch) {
+                res.json({
+                    success: false,
+                    message: 'Sorry, the password does not match.'
+                });
+            }
+
         }
-    })
+    });
 }

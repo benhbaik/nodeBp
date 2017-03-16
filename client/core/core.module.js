@@ -1,1 +1,1 @@
-angular.module('core', ['core.nav']);
+angular.module('core', ['core.user']);
