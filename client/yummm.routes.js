@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('yummm').
     config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('!');

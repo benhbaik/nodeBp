@@ -7,6 +7,7 @@ angular.module('yummm', [
   'navbar',
   'search'
 ]);
+// TODO: build REST client service
 // TODO: add dashboard component
 // TODO: should route to dashboard after login
 // TODO: should route to home if dashboard is clicked and not logged in

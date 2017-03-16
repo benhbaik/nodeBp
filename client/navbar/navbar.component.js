@@ -1,3 +1,5 @@
+'use strict';
+
 angular.
     module('navbar').
     component('navbar', {

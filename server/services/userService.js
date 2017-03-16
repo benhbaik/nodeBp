@@ -72,19 +72,17 @@ exports.login = function(req, res) {
             res.json(err);
         }
         if (user) {
-            var passwordMatch = user.comparePassword(password);
 
-            if (passwordMatch) {
-                var token = tokenService.createToken(user);
+            if (user.comparePassword(password)) {
                 res.json({
                     success: true,
                     username: user.username,
                     message: 'You are logged in.',
-                    token: token
+                    token: tokenService.createToken(user)
                 });
             }
 
-            if (!passwordMatch) {
+            if (!user.comparePassword(password)) {
                 res.json({
                     success: false,
                     message: 'Sorry, the password does not match.'
@@ -93,4 +91,8 @@ exports.login = function(req, res) {
 
         }
     });
+}
+
+exports.logout = function(req, res) {
+
 }

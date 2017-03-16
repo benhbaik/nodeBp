@@ -31,4 +31,10 @@ router.
             UserService.login(req, res);
         });
 
+router.
+    route('/logout').
+        post(function(req, res) {
+            UserService.logout(req, res);
+        });
+
 module.exports = router;
